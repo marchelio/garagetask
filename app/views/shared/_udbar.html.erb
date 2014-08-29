@@ -1,0 +1,10 @@
+  <div class="pull-right">
+  <span class="edit">
+      <i class="icon-pencil"></i>
+  </span>
+  <span class="destroy">
+  <%=link_to target, method: :delete, data: { confirm: 'Are you sure?' }, remote: true do
+      content_tag :i, nil, class: "icon-trash"
+      end %>
+  </span>
+  </div>

@@ -1,0 +1,26 @@
+<tbody>
+<tr class="task" id="task_<%=task.id%>">
+  <%= form_for(task, remote: true) do |f| %>
+    <td>
+      <%= f.check_box :done %>
+    </td>
+    <td class="maincol">
+      <div class="content"><%= task.content%></div>
+      <div class="edit-form" hidden>
+        <div class=" input-append">
+          <%= f.text_field :content %>
+          <%= button_tag(type: "submit", class: "btn btn-primary") do%>
+            <i class="icon-ok-circle"></i>
+          <% end %>
+        </div>
+        <div class="deadline">
+          <%= f.datetime_select :deadline %>
+        </div>
+      </div>
+    </td>
+    <td>
+    <%= render partial: 'shared/udbar', locals: {target: task} %>
+    </td>
+  <% end %>
+ </tr>
+ </tbody>

@@ -14,3 +14,23 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .
+
+// $(document).ready(function(){
+// 	//$(".edit-form").hide();
+// 	$(".edit").click(function(){
+// 		  /* Activating Best In Place */
+//     /* jQuery(".best_in_place").best_in_place(); */
+// 		$(this).parent().siblings(".content").toggle();
+// 		$(this).parent().siblings(".edit-form").toggle();
+// 	});
+	// $(".edit_project").moseover(function(){
+	//     $(".edit_project").children(".pull-right").fadeIn();
+	// });
+	// $(".edit_project").moseout(function(){
+	//     $(".edit_project").children(".pull-right").fadeOut();
+	// });
+// 	//var sort = 'ul'
+// 	//$(sort).sortable();
+// 	//$(sort).dragable();
+// 	//$(sort).disableSelection();
+// });

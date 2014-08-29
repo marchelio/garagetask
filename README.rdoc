@@ -26,3 +26,15 @@ Things you may want to cover:
 
 Please feel free to use a different markup language if you do not plan to run
 <tt>rake doc:app</tt>.
+
+SQL task
+
+1. SELECT DISTINCT status FROM tasks ORDER BY content asc;
+2. SELECT count(*) FROM tasks GROUP BY project_id ORDER BY count(*) desc;
+3. SELECT count(*) FROM tasks INNER JOIN projects ON tasks.project_id = projects.id GRoUP BY project_id ORDER BY projects.name;
+4. SELECT "tasks".* FROM tasks INNER JOIN projects ON tasks.project_id = projects.id WHERE title LIKE 'N%'; ????
+5.
+6. SELECT *,count(*) FROM tasks GROUP BY name HAVING count(*)>1;
+7.
+8.
+

@@ -1,0 +1,6 @@
+<% if @project.save %>
+  $(".projects").append("<%= escape_javascript(render(@project)) %>");
+  $(".projectform").html("<%= escape_javascript(render 'projects/project_form') %>");
+<% else %>
+  $(".projectform").html("<%= escape_javascript(render 'projects/project_form') %>");
+<% end %>

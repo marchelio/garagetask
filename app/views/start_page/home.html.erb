@@ -1,0 +1,45 @@
+<% if signed_in? %>
+<div class="container">.
+<div class ="row">
+  <div class="span12">
+    <section>
+    <%= link_to "Sign out", signout_path, method: "delete" %>
+      <h1 class="center">
+        Hello, <%= @user.name %>
+      </h1>
+    </section>
+    <% if @user.projects.any? %>
+      <h3>Projects (<%= @user.projects.count %>)</h3>
+      <ul class="projects">
+        <%= render @projects %>
+      </ul>
+    <% end %>
+      <div class="center projectform">
+      <%= render 'projects/project_form' %>
+      </div>
+  </div>
+</div>
+</div>
+</div
+<% else %>
+<h1> Зроби це! <h1>
+
+<h2>Ласкаво просимо</h2>
+
+<div class="row">
+  <div class="span6 offset3">
+    <%= form_for(:session, url: sessions_path) do |f| %>
+
+      <%= f.label :email %>
+      <%= f.text_field :email %>
+
+      <%= f.label "Пароль" %>
+      <%= f.password_field :password %>
+
+      <%= f.submit "Увійти"%>
+    <% end %>
+
+    <p>Новенький? <%= link_to "Зареєструйся!", registration_path %></p>
+  </div>
+</div>
+<% end %>

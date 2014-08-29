@@ -1,0 +1,23 @@
+<li class="project" id="project_<%=project.id%>" >
+  <div class="project-title btn-primary">
+    <i class="icon-list-alt"></i> 
+    <span class="title"><%=project.title%></span>
+    <span class="input-append">
+    <div class="edit-form" <%= 'hidden' if (project.title!="" && project.title) %> >
+    <%= form_for(project, remote: true) do |f| %>
+      <%= f.text_field :title %>
+      <%= button_tag(type: "submit", class: "btn btn-primary" ) do%>
+        <i class="icon-ok-circle"></i>
+      <% end %>
+    <% end %>
+    </div>
+    </span>
+    <%= render partial: 'shared/udbar', locals: {target: project} %>
+  </div>
+  <div class="input-append taskform center">
+    <%= render partial: 'tasks/task_form', locals: {pid: project} %>
+  </div>
+  <table class="tasks table table-bordered table-hover">
+    <%= render @tasks[project.id] if project.tasks.any?%>
+  </table>
+</li>

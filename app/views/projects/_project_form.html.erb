@@ -1,0 +1,6 @@
+<%= form_for(current_user.projects.build, remote: true) do |f| %>
+  <%= render 'shared/error_messages', object: f.object %>
+  <%= button_tag(type: "submit", class: "btn btn-large btn-primary") do %>
+    <i class="icon-plus"></i> Add TODO List
+  <% end %>
+<% end %>

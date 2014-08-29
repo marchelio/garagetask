@@ -1,0 +1,5 @@
+var content = $("#task_<%=@task.id%>").find(".content");
+var editform = $("#task_<%=@task.id%>").find(".edit-form");
+content.text('<%=@task.content%>');
+editform.hide();
+content.show();
