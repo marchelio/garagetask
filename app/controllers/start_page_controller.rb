@@ -6,7 +6,7 @@ class StartPageController < ApplicationController
       @projects = @user.projects
       @tasks = {}
       @projects.each { |p| 
-        @tasks[p.id]=p.tasks
+        @tasks[p.id]=p.tasks.order("priority DESC");
       }
 	  end
   end

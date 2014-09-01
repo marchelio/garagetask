@@ -43,7 +43,12 @@ textarea {
 .projects {
   list-style: none;
   padding: 0;
-  li {
+  .project-title {
+    font-size: 15pt;
+    padding: 10px;
+    display: box;
+  }
+  .project {
 	  border-radius: 20px;
 	  background-color: white;
 	  margin-bottom: 30px;
@@ -51,31 +56,25 @@ textarea {
 	}
 }
 
-.project-title {
-  font-size: 15pt;
-  padding: 10px;
-  display: box;
-}
-
 /* tasks */
 .tasks {
-width: 100%;
+  width: 100%;
+  .deadline{
+   select{
+      width: auto;
+    }
+  }
 }
 
 .taskform {
   padding-top: 18px;
   width: 100%;
   background-color: $grayLight;
-}
-.inputtask {
-  width: 90%;
-}
-.btntask {
-  width: 10%;
-}
-.deadline{
-  select{
-    width: auto;
+  .inputtask {
+    width: 90%;
+  }
+  .btntask {
+    width: 10%;
   }
 }
 
@@ -86,4 +85,9 @@ width: 100%;
       width:90%;
     }
   }
+}
+
+/* udbar */
+.udbar {
+  margin-right: 15px;
 }

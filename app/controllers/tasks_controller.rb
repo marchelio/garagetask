@@ -3,6 +3,7 @@ class TasksController < ApplicationController
 
   def create
     @task = current_user.tasks.build(task_params)
+    @task.priority=@task.project.tasks.count+1
     respond_to do |format|
       format.html { redirect_to root_path }
       format.js
@@ -25,6 +26,13 @@ class TasksController < ApplicationController
       format.html { redirect_to root_path }
       format.js
     end
+  end
+
+  def up
+    @task = Task.find(params[:id])
+    @task.priority+=1
+    @task.save
+    redirect_to root_path
   end
 
   private

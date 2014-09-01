@@ -1,7 +1,7 @@
 <tbody>
 <tr class="task" id="task_<%=task.id%>">
   <%= form_for(task, remote: true) do |f| %>
-    <td>
+    <td class="donecol">
       <%= f.check_box :done %>
     </td>
     <td class="maincol">
@@ -18,8 +18,14 @@
         </div>
       </div>
     </td>
-    <td>
+    <td class="barcol">
     <%= render partial: 'shared/udbar', locals: {target: task} %>
+    <div class="pull-right">
+    <%= link_to task, action: "up" do 
+       content_tag :i, nil, class: "icon-arrow-up"
+      end %>
+      <i class="icon-arrow-down"></i>
+    </div>
     </td>
   <% end %>
  </tr>

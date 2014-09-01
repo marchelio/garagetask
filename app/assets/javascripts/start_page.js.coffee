@@ -2,21 +2,13 @@
 # All this logic will automatically be available in application.js.
 # You can use CoffeeScript in this file: http://coffeescript.org/
 
-$(document).ready ->
+
+editfunc = ->
   $(".edit").click ->
-    $(this).parent().siblings(".title").toggle()
-    $(this).parent().parent().find(".project-title").find(".edit-form").toggle()
-    $(this).parent().parent().parent().find(".content").toggle()
-    $(this).parent().parent().parent().find(".edit-form").toggle()
-    return
+      $(this).parent().siblings(".title").toggle()
+      $(this).parent().parent().find("span.input-append").find(".edit-form").toggle()
+      $(this).parent().parent().parent().children(".maincol").find(".content").toggle()
+      $(this).parent().parent().parent().children(".maincol").find(".edit-form").toggle()
 
 
-$(".project-title").hover (->
-  $(this).children(".edit_project").children(".pull-right").fadeIn "slow"
-  return
-), ->
-  $(this).children(".edit_project").children(".pull-right").fadeOut "slow"
-  return
-
-
-  return
+$(document).ready(editfunc)

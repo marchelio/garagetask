@@ -33,11 +33,11 @@ gem 'bcrypt-ruby', '~> 3.1.2'
 
 group :development, :test do
   gem 'rspec-rails'
+  gem 'capybara'
 end
 
 group :test do
   gem 'selenium-webdriver'
-  gem 'capybara'
 end
 
 # Use unicorn as the app server
