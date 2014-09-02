@@ -4,7 +4,10 @@ class ProjectsController < ApplicationController
   def create
   	@project = current_user.projects.build
     respond_to do |format|
-      format.html { redirect_to root_path }
+      format.html { 
+        @project.save
+        redirect_to root_path 
+      }
       format.js
     end
   end

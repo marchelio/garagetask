@@ -3,7 +3,10 @@ Rails.application.routes.draw do
   resources :users
   resources :sessions, only: [:new, :create, :destroy]
   resources :projects, only: [:create, :update, :destroy]
-  resources :tasks, only: [:create, :update, :destroy, :up, :down]
+  resources :tasks, only: [:create, :update, :destroy, :up, :down] do
+    get 'up', via: 'patch'
+    get 'down', via: 'patch'
+  end
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

@@ -1,6 +1,7 @@
 <% if @project.save %>
   $(".projects").append("<%= escape_javascript(render(@project)) %>");
-  $(".projectform").html("<%= escape_javascript(render 'projects/project_form') %>");
 <% else %>
-  $(".projectform").html("<%= escape_javascript(render 'projects/project_form') %>");
+  <% form_for(@project) do |f| %>
+    $(".projectform").append("<%= escape_javascript(render 'shared/error_messages', object: f.object) %>");
+  <% end %> 
 <% end %>

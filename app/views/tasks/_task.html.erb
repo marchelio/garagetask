@@ -1,11 +1,12 @@
-<tbody>
-<tr class="task" id="task_<%=task.id%>">
+<tbody  id="task_<%=task.id%>">
+<tr class="task">
   <%= form_for(task, remote: true) do |f| %>
     <td class="donecol">
       <%= f.check_box :done %>
     </td>
     <td class="maincol">
       <div class="content"><%= task.content%></div>
+      <div class="content"><%= task.priority%></div>
       <div class="edit-form" hidden>
         <div class=" input-append">
           <%= f.text_field :content %>
@@ -21,10 +22,12 @@
     <td class="barcol">
     <%= render partial: 'shared/udbar', locals: {target: task} %>
     <div class="pull-right">
-    <%= link_to task, action: "up" do 
-       content_tag :i, nil, class: "icon-arrow-up"
-      end %>
-      <i class="icon-arrow-down"></i>
+    <%= link_to task_up_path(task), remote: true do
+      content_tag :i, nil, class: "icon-arrow-up"
+    end %>
+    <%= link_to task_down_path(task), remote: true do
+      content_tag :i, nil, class: "icon-arrow-down"
+    end %>
     </div>
     </td>
   <% end %>

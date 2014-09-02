@@ -1,6 +1,6 @@
 <% if @task.save %>
-  $("#project_<%=@task.project.id%>").children(".tasks").prepend("<%= escape_javascript(render(@task)) %>");
-  $("#project_<%=@task.project.id%>").children(".taskform").html("<%= escape_javascript(render partial: 'tasks/task_form', locals: {pid: @task.project}) %>");
-<% else %>
-  $("#project_<%=@task.project.id%>").children(".taskform").html("<%= escape_javascript(shared/error_messages) %>")
+  $("#project_<%=@task.project.id%>").find(".tasks").prepend("<%= escape_javascript(render(@task)) %>");
+  <% form_for(@task) do |f| %>
+    $("#project_<%=@task.project.id%>").html("<%= escape_javascript(render 'shared/error_messages', object: f.object) %>");
+  <% end %>
 <% end %>
