@@ -1,0 +1,4 @@
+<% if (@task1.save && @task2.save) %>
+	$("#task_<%=@task1.id%>").remove();
+	$("#task_<%=@task2.id%>").after("<%= escape_javascript(render(@task1)) %>");
+<% end %>
