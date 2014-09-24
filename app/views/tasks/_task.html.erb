@@ -6,10 +6,9 @@
     </td>
     <td class="maincol">
       <div class="content"><%= task.content%></div>
-      <div class="content"><%= task.priority%></div>
       <div class="edit-form" hidden>
         <div class=" input-append">
-          <%= f.text_field :content %>
+          <%= f.text_field :content, maxlength: 85 %>
           <%= button_tag(type: "submit", class: "btn btn-primary") do%>
             <i class="icon-ok-circle"></i>
           <% end %>
@@ -21,7 +20,7 @@
     </td>
     <td class="barcol">
     <%= render partial: 'shared/udbar', locals: {target: task} %>
-    <div class="pull-right">
+    <div class="pull-right hidebar">
     <%= link_to task_up_path(task), remote: true do
       content_tag :i, nil, class: "icon-arrow-up"
     end %>

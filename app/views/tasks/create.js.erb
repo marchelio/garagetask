@@ -1,6 +1,4 @@
 <% if @task.save %>
   $("#project_<%=@task.project.id%>").find(".tasks").prepend("<%= escape_javascript(render(@task)) %>");
-  <% form_for(@task) do |f| %>
-    $("#project_<%=@task.project.id%>").html("<%= escape_javascript(render 'shared/error_messages', object: f.object) %>");
-  <% end %>
+  $("#project_<%=@task.project.id%>").find(".inputtask").val("");
 <% end %>

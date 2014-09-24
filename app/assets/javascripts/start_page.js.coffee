@@ -10,5 +10,5 @@ editfunc = ->
       $(this).parent().parent().parent().children(".maincol").find(".content").toggle()
       $(this).parent().parent().parent().children(".maincol").find(".edit-form").toggle()
 
+ $(document).ready(editfunc)
 
-$(document).ready(editfunc)

@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-  resources :users
+  resources :users, only: [:new, :create, :destroy, :update]
   resources :sessions, only: [:new, :create, :destroy]
   resources :projects, only: [:create, :update, :destroy]
   resources :tasks, only: [:create, :update, :destroy, :up, :down] do

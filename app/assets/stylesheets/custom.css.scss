@@ -59,6 +59,12 @@ textarea {
 /* tasks */
 .tasks {
   width: 100%;
+  .donecol {
+    width: 30px;
+  }
+  .barcol {
+    width: 90px;
+  }
   .deadline{
    select{
       width: auto;
@@ -70,8 +76,11 @@ textarea {
   padding-top: 18px;
   width: 100%;
   background-color: $grayLight;
+  i{
+  margin-right: 20px;
+  }
   .inputtask {
-    width: 90%;
+    width: 80%;
   }
   .btntask {
     width: 10%;
@@ -90,4 +99,8 @@ textarea {
 /* udbar */
 .udbar {
   margin-right: 15px;
+}
+
+.hidebar {
+  display: none;
 }

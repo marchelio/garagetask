@@ -1,11 +1,9 @@
 require 'rails_helper'
-require 'spec_helper'
 
 describe "StartPages" do
+subject { page }
   describe "Sign-in page" do
-    it "should have the content 'Hello'" do
-      get root_path
-      expect(page).to have_content('Hello')
-    end
+  	before {visit root_path}
+    it { should have_content('Just do it!') }
   end
 end

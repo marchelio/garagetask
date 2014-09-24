@@ -1,2 +1,5 @@
 var title = $("#project_<%=@project.id%>").find(".title");
+var editform = $("#project_<%=@project.id%>").children('.project-title').find(".edit-form");
 title.text("<%=@project.title%>");
+editform.hide();
+title.show();
