@@ -16,15 +16,15 @@
 //= require_tree .
 
 var editfunc = function() {
-  return $(".edit").click(function() {
+  $(".edit").click(function() {
     $(this).parent().siblings(".title").toggle();
     $(this).parent().parent().find("span.input-append").find(".edit-form").toggle();
     $(this).parent().parent().parent().children(".maincol").find(".content").toggle();
-    return $(this).parent().parent().parent().children(".maincol").find(".edit-form").toggle();
+    $(this).parent().parent().parent().children(".maincol").find(".edit-form").toggle();
   });
 };
 
-$(document).ready ( function(){
+$(document).on("page:update", function(){
 	$('.project-title').hover(function(){
 	$(this).find(".hidebar").stop(true,true).fadeIn('fast');
 	},  function(){

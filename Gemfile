@@ -4,6 +4,7 @@ source 'https://rubygems.org'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.1.4'
 gem 'bootstrap-sass', '2.3.2.0'
+gem 'font-awesome-rails'
 #gem 'best_in_place'
 # Use sqlite3 as the database for Active Record
 gem 'sqlite3'
@@ -34,11 +35,13 @@ gem 'bcrypt-ruby', '~> 3.1.2'
 
 group :development, :test do
   gem 'rspec-rails'
+  gem 'rspec-its'
   gem 'capybara'
 end
 
 group :test do
   gem 'selenium-webdriver'
+  gem 'factory_girl_rails'
 end
 
 # Use unicorn as the app server

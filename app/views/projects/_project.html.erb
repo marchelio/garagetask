@@ -1,6 +1,6 @@
 <li class="project" id="project_<%=project.id%>" >
   <div class="project-title btn-primary">
-    <i class="icon-list-alt  icon-4x"></i> 
+    <%= fa_icon "calendar-o" %>
     <span class="title"><%=project.title%></span>
     <span class="input-append">
     <div class="edit-form" <%= 'hidden' if (project.title!="" && project.title) %> >

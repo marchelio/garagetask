@@ -1,10 +1,10 @@
   <div class="pull-right udbar hidebar">
-  <span class="edit" onclick="editfunc()">
-      <i class="icon-pencil"></i>
+  <span class="edit">
+      <%= fa_icon "pencil 1x" %>
   </span>
   <span class="destroy">
   <%=link_to target, method: :delete, data: { confirm: 'Are you sure?' }, remote: true do
-      content_tag :i, nil, class: "icon-trash"
+      fa_icon "trash 1x"
       end %>
   </span>
   </div>

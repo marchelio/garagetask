@@ -21,12 +21,16 @@
     <td class="barcol">
     <%= render partial: 'shared/udbar', locals: {target: task} %>
     <div class="pull-right hidebar">
-    <%= link_to task_up_path(task), remote: true do
-      content_tag :i, nil, class: "icon-arrow-up"
-    end %>
-    <%= link_to task_down_path(task), remote: true do
-      content_tag :i, nil, class: "icon-arrow-down"
-    end %>
+      <div class="angle">
+        <%= link_to task_up_path(task), remote: true do
+          fa_icon "angle-up"
+        end %>
+      </div>
+      <div class="angle">
+        <%= link_to task_down_path(task), remote: true do
+          fa_icon "angle-down"
+        end %>
+      </div>
     </div>
     </td>
   <% end %>
