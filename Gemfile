@@ -5,7 +5,7 @@ source 'https://rubygems.org'
 gem 'rails', '4.1.4'
 gem 'bootstrap-sass', '2.3.2.0'
 gem 'font-awesome-rails'
-#gem 'best_in_place'
+#gem 'best_in_place', :git => 'https://github.com/aaronchi/best_in_place.git'
 # Use sqlite3 as the database for Active Record
 gem 'sqlite3'
 # Use SCSS for stylesheets
@@ -21,7 +21,7 @@ gem 'coffee-rails', '~> 4.0.0'
 gem 'jquery-rails'
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
 gem 'turbolinks'
-#gem 'jquery-turbolinks'
+gem 'jquery-turbolinks'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 2.0'
 # bundle exec rake doc:rails generates the API under doc/api.

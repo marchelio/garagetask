@@ -35,8 +35,9 @@ SQL task
 4. SELECT * FROM tasks WHERE project_id=(SELECT id FROM projects WHERE title LIKE 't%');
 ?????
 5. SELECT *,(SELECT count(*) FROM tasks WHERE project_id=projects.id) FROM projects WHERE title LIKE '_%a%_';
-?????
 6. SELECT * FROM tasks GROUP BY name HAVING count(*)>1;
-7. SELECT *,count(*) FROM tasks WHERE (project_id = (SELECT id FROM projects WHERE title = "Garage") GROUP BY content,done ORDER BY count(*));
-?????
-8. SELECT projects.name FROM projects WHERE (SELECT count(*) FROM tasks WHERE project_id=projects.id AND completed="t" GROUP BY completed)>10 ORDER BY projects.id;
+7. SELECT *,count(*) FROM tasks WHERE (project_id = (SELECT id FROM projects WHERE projects.name = "Garage") GROUP BY tasks.name,completed ORDER BY count(*));
+????
+8. SELECT projects.name FROM projects WHERE (SELECT count(*) FROM tasks WHERE project_id=projects.id AND completed="t")>10 ORDER BY projects.id;
+
+

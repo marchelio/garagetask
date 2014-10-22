@@ -3,8 +3,7 @@ require 'spec_helper'
 describe User do
 
   before do
-    @user = User.new(name: "Example User", email: "user@example.com",
-                     password: "foobar", password_confirmation: "foobar")
+    @user = FactoryGirl.create(:user)
   end
 
   subject { @user }
@@ -17,6 +16,7 @@ describe User do
   it { should respond_to(:remember_token) }
   it { should respond_to(:authenticate) }
   it { should respond_to(:projects) }
+  it { should respond_to(:tasks) }
 
   it { should be_valid }
 
@@ -58,13 +58,9 @@ describe User do
     end
   end
 
-  describe "when email address is already taken" do
-    before do
-      user_with_same_email = @user.dup
-      user_with_same_email.save
-    end
-
-    it { should_not be_valid }
+  it "save with same email" do
+    user_with_same_email = @user.dup
+    expect(user_with_same_email).not_to be_valid
   end
 
   describe "email address with mixed case" do
@@ -95,12 +91,6 @@ describe User do
       it { should eq found_user.authenticate(@user.password) }
     end
 
-    describe "with invalid password" do
-      let(:user_for_invalid_password) { found_user.authenticate("invalid") }
-
-      it { should_not eq user_for_invalid_password }
-      specify { expect(user_for_invalid_password).to be_false }
-    end
   end
 
   describe "remember token" do
@@ -110,7 +100,10 @@ describe User do
 
   describe "projects associations" do
 
-    before { @user.save }
+    before do
+      @user.projects.build(title: "test project")
+      @user.save
+    end
     it "should destroy associated projects" do
       projects = @user.projects.to_a
       expect(projects).not_to be_empty

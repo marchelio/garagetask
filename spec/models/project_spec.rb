@@ -1,14 +1,13 @@
 require 'spec_helper'
 
 describe Project do	
-  let(:user) { FactoryGirl.create(:user) }
-    before { @project = user.projects.build(title: "test project") }
+
+    before { @project = FactoryGirl.create(:project) }
 
     subject { @project }
     it { should respond_to(:title) }
     it { should respond_to(:user_id) }
     it { should respond_to(:user) }
-    its(:user) { should eq user }
 
     it { should be_valid }
 
@@ -20,6 +19,22 @@ describe Project do
   describe "with title that is too long" do
     before { @project.title = "a" * 141 }
     it { should_not be_valid }
+  end
+
+  describe "tasks associations" do
+
+    before do
+      @project.tasks.build(content: "test project")
+      @project.save
+    end
+    it "should destroy associated tasks" do
+      tasks = @project.tasks.to_a
+      expect(tasks).not_to be_empty
+      @project.destroy
+      tasks.each do |task|
+        expect(Task.where(id: task.id)).to be_empty
+      end
+    end
   end
 
 end

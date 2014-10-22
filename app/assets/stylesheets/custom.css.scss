@@ -44,9 +44,7 @@ textarea {
   list-style: none;
   padding: 0;
   .project-title {
-    font-size: 15pt;
-    padding: 10px;
-    display: box;
+
   }
   .project {
 	  border-radius: 20px;
@@ -54,7 +52,11 @@ textarea {
 	  margin-bottom: 30px;
     padding-bottom: 5px;
     .project-title{
+      font-size: 15pt;
+      padding: 10px;
+      display: box;
       i{
+        font-size: 12pt;
         color: $grayDark;
       }
     }
