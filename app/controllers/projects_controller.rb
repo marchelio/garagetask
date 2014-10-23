@@ -5,8 +5,8 @@ class ProjectsController < ApplicationController
   	@project = current_user.projects.build
     respond_to do |format|
       format.html { 
-        @project.save
         redirect_to root_path 
+        @project.save
       }
       format.js
     end

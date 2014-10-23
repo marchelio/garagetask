@@ -18,6 +18,6 @@
     <%= render partial: 'tasks/task_form', locals: {pid: project} %>
   </div>
   <table class="tasks table table-bordered table-hover">
-    <%= render @tasks[project.id] if project.tasks.any?%>
+    <%= render @tasks[project.id] if project.tasks.any? %>
   </table>
 </li>

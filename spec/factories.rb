@@ -11,6 +11,8 @@ FactoryGirl.define do
   end
   factory :task do
     content "Exemple Task"
+    deadline Time.now
+    done false
     project
   end
 end

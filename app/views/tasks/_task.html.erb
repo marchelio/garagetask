@@ -7,7 +7,7 @@
     <td class="maincol">
       <div class="content"><%= task.content%></div>
       <div class="edit-form" hidden>
-        <div class=" input-append">
+        <div class="input-append">
           <%= f.text_field :content, maxlength: 85 %>
           <%= button_tag(type: "submit", class: "btn btn-primary") do%>
             <i class="icon-ok-circle"></i>
@@ -18,21 +18,21 @@
         </div>
       </div>
     </td>
-    <td class="barcol">
-    <%= render partial: 'shared/udbar', locals: {target: task} %>
-    <div class="pull-right hidebar">
-      <div class="angle">
-        <%= link_to task_up_path(task), remote: true do
-          fa_icon "angle-up"
-        end %>
-      </div>
-      <div class="angle">
-        <%= link_to task_down_path(task), remote: true do
-          fa_icon "angle-down"
-        end %>
-      </div>
-    </div>
-    </td>
   <% end %>
+  <td class="barcol">
+  <%= render partial: 'shared/udbar', locals: {target: task} %>
+  <div class="pull-right hidebar">
+    <div class="angle">
+      <%= link_to task_up_path(task), remote: true do
+        fa_icon "angle-up"
+      end %>
+    </div>
+    <div class="angle">
+      <%= link_to task_down_path(task), remote: true do
+        fa_icon "angle-down"
+      end %>
+    </div>
+  </div>
+  </td>
  </tr>
  </tbody>

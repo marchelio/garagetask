@@ -32,12 +32,9 @@ SQL task
 1. SELECT DISTINCT status FROM tasks ORDER BY content;
 2. SELECT count(*) FROM tasks GROUP BY project_id ORDER BY count(*) desc;
 3. SELECT count(*) FROM tasks  GROUP BY project_id ORDER BY (SELECT name FROM projects WHERE project_id=id);
-4. SELECT * FROM tasks WHERE project_id=(SELECT id FROM projects WHERE title LIKE 't%');
-?????
-5. SELECT *,(SELECT count(*) FROM tasks WHERE project_id=projects.id) FROM projects WHERE title LIKE '_%a%_';
+4. SELECT * FROM tasks WHERE project_id IN (SELECT id FROM projects WHERE projects.name LIKE 'N%');
+5. SELECT *,(SELECT count(*) FROM tasks WHERE project_id=projects.id) FROM projects WHERE projects.name LIKE '_%a%_';
 6. SELECT * FROM tasks GROUP BY name HAVING count(*)>1;
-7. SELECT *,count(*) FROM tasks WHERE (project_id = (SELECT id FROM projects WHERE projects.name = "Garage") GROUP BY tasks.name,completed ORDER BY count(*));
-????
+7. SELECT * FROM tasks WHERE project_id=(SELECT id FROM projects WHERE projects.name = "Garage") GROUP BY tasks.name,completed HAVING count(*)>1 ORDER BY count(*);
 8. SELECT projects.name FROM projects WHERE (SELECT count(*) FROM tasks WHERE project_id=projects.id AND completed="t")>10 ORDER BY projects.id;
-
 

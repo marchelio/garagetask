@@ -11,18 +11,10 @@
 // about supported directives.
 //
 //= require turbolinks
-//= require jquery2
+//= require jquery
+//= require jquery.turbolinks
 //= require jquery_ujs
 //= require_tree .
-
-var editfunc = function() {
-  $(".edit").click(function() {
-    $(this).parent().siblings(".title").toggle();
-    $(this).parent().parent().find("span.input-append").find(".edit-form").toggle();
-    $(this).parent().parent().parent().children(".maincol").find(".content").toggle();
-    $(this).parent().parent().parent().children(".maincol").find(".edit-form").toggle();
-  });
-};
 
 var show_bar = function(){
 	$('.project-title').hover(function(){
@@ -38,6 +30,48 @@ var show_bar = function(){
 	}
 	);
 }
+
+var show_bar_project = function(p){
+	$("#"+p).find('.project-title').hover(function(){
+	$(this).find(".hidebar").stop(true,true).fadeIn('fast');
+	},  function(){
+	$(this).find(".hidebar").stop(true,true).fadeOut('fast');
+	}
+	);
+}
+
+var show_bar_task = function(t){
+	$("#"+t).find('.task').hover(function(){
+	$(this).find(".hidebar").stop(true,true).fadeIn('fast');
+	},  function(){
+	$(this).find(".hidebar").stop(true,true).fadeOut('fast');
+	}
+	);
+}
+
+var editfunc = function() {
+  $(".edit").click(function() {
+    $(this).parent().siblings(".title").toggle();
+    $(this).parent().parent().find("span.input-append").find(".edit-form").toggle();
+    $(this).parent().parent().parent().children(".maincol").find(".content").toggle();
+    $(this).parent().parent().parent().children(".maincol").find(".edit-form").toggle();
+  });
+};
+
+var editfunc_project = function(p) {
+$("#"+p).children(".project-title").find(".edit").click(function() {
+    $(this).parent().siblings(".title").toggle();
+    $(this).parent().parent().find("span.input-append").find(".edit-form").toggle();
+  });
+};
+
+var editfunc_task = function(t) {
+$("#"+t).find(".edit").click(function() {
+    $(this).parent().parent().parent().children(".maincol").find(".content").toggle();
+    $(this).parent().parent().parent().children(".maincol").find(".edit-form").toggle();
+  });
+};
+
 
 $(show_bar);
 $(editfunc);

@@ -1,4 +1,4 @@
-<%= form_for(current_user.tasks.build, remote: true) do |f| %>
+<%= form_for(pid.user.tasks.build, remote: true) do |f| %>
   <%= render 'shared/error_messages', object: f.object %>
   <%= f.hidden_field :project_id, value: pid.id %>
   <%= fa_icon "angle-up" %>

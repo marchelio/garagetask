@@ -38,20 +38,37 @@ describe "StartPages" do
         expect { click_button "Add TODO List" }.to change(Project, :count).by(1)
       end
 
-      # describe 'update' do
-      #   before do
-      #     within ("fuck") do
-      #       fill_in "title", with: "edit_project"
-      #       click_button "submit"
-      #     end
-      #   end
-      #   it {should have_content(p1.title)}
-      # end
+      describe 'update' do
+        before do
+          within ('#project_<%=p1.id%>') do
+            within ('.project-title') do
+              fill_in "title", with: "edit_project"
+              click_button "submit"
+            end
+          end
+        end
+        it 'updating' do
+          expect(p1.title).to eq "edit_project"
+        end
+        it {should have_content(p1.title)}
+      end
 
       it "delete" do
         expect { click_link '', href: "/projects/#{p1.id}"}.to change(Project, :count).by(-1)
       end
+    end
 
+    describe "tasks" do
+      it { user.tasks.each{ |x|  should have_content(x.content)} }
+
+      describe 'creation' do
+        before do
+          within ('#project_<%=p1.id%>') do
+            fill_in "content", with: "new_task"
+          end
+        end
+        it {expect { click_button "submit" }.to change(Task, :count).by(1)}
+      end
     end
 
    end

@@ -1,17 +1,6 @@
 class UsersController < ApplicationController
   before_action :correct_user,   only: :show
 
-  def show
-    @user = User.find(params[:id])
-    @projects = @user.projects
-    @project = current_user.projects.build if signed_in?
-    @tasks = {}
-    @projects.each { |p| 
-      @tasks[p.id]=p.tasks
-    }
-    @task = @user.tasks.build
-  end
-
   def new
   	@user = User.new
   end
