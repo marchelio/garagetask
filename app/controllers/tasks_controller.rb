@@ -1,5 +1,6 @@
 class TasksController < ApplicationController
   before_action :signed_in_user
+  skip_before_filter  :verify_authenticity_token, :only => [:done]
 
   def create
     @task = current_user.tasks.build(task_params)
@@ -65,6 +66,12 @@ class TasksController < ApplicationController
       }
       format.js
     end
+  end
+
+  def done
+    @task = Task.find(params[:task_id])
+    @task.update_attributes(:done => params[:done])
+    render nothing: true
   end
 
   private

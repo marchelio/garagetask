@@ -1,6 +1,7 @@
 <% if @task.save %>
   $("#project_<%=@task.project.id%>").find(".tasks").prepend("<%= escape_javascript(render(@task)) %>");
   $("#project_<%=@task.project.id%>").find(".inputtask").val("");
-  $(show_bar_task("task_<%=@task.id%>"));
-  $(editfunc_task("task_<%=@task.id%>"));
+  $(show_bar_task("#task_<%=@task.id%>"));
+  $(editfunc_task("#task_<%=@task.id%>"));
+  $(taskdone);
 <% end %>

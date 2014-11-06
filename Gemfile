@@ -5,7 +5,8 @@ source 'https://rubygems.org'
 gem 'rails', '4.1.4'
 gem 'bootstrap-sass', '2.3.2.0'
 gem 'font-awesome-rails'
-#gem 'best_in_place', :git => 'https://github.com/aaronchi/best_in_place.git'
+#gem 'best_in_place'#, :git => 'https://github.com/aaronchi/best_in_place.git'
+#gem 'jquery-ui-rails'
 # Use sqlite3 as the database for Active Record
 gem 'sqlite3'
 # Use SCSS for stylesheets

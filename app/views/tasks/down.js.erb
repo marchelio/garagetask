@@ -1,6 +1,7 @@
-<% if (@task1.save && @task2.save) %>
+<% if (@task2 && @task1.save && @task2.save) %>
 	$("#task_<%=@task1.id%>").remove();
 	$("#task_<%=@task2.id%>").after("<%= escape_javascript(render(@task1)) %>");
-    $(show_bar_task("task_<%=@task1.id%>"));
-  	$(editfunc_task("task_<%=@task1.id%>"));
+    $(show_bar_task("#task_<%=@task1.id%>"));
+  	$(editfunc_task("#task_<%=@task1.id%>"));
+  	$(taskdone);
 <% end %>

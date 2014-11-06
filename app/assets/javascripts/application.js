@@ -12,27 +12,12 @@
 //
 //= require turbolinks
 //= require jquery
-//= require jquery.turbolinks
 //= require jquery_ujs
 //= require_tree .
 
-var show_bar = function(){
-	$('.project-title').hover(function(){
-	$(this).find(".hidebar").stop(true,true).fadeIn('fast');
-	},  function(){
-	$(this).find(".hidebar").stop(true,true).fadeOut('fast');
-	}
-	);
-	$('.task').hover(function(){
-	$(this).find(".hidebar").stop(true,true).fadeIn('fast');
-	},  function(){
-	$(this).find(".hidebar").stop(true,true).fadeOut('fast');
-	}
-	);
-}
 
 var show_bar_project = function(p){
-	$("#"+p).find('.project-title').hover(function(){
+	$(p).find('.project-title').hover(function(){
 	$(this).find(".hidebar").stop(true,true).fadeIn('fast');
 	},  function(){
 	$(this).find(".hidebar").stop(true,true).fadeOut('fast');
@@ -41,7 +26,7 @@ var show_bar_project = function(p){
 }
 
 var show_bar_task = function(t){
-	$("#"+t).find('.task').hover(function(){
+	$(t).find('.task').hover(function(){
 	$(this).find(".hidebar").stop(true,true).fadeIn('fast');
 	},  function(){
 	$(this).find(".hidebar").stop(true,true).fadeOut('fast');
@@ -49,29 +34,41 @@ var show_bar_task = function(t){
 	);
 }
 
-var editfunc = function() {
-  $(".edit").click(function() {
-    $(this).parent().siblings(".title").toggle();
-    $(this).parent().parent().find("span.input-append").find(".edit-form").toggle();
-    $(this).parent().parent().parent().children(".maincol").find(".content").toggle();
-    $(this).parent().parent().parent().children(".maincol").find(".edit-form").toggle();
-  });
-};
+var show_bar = function(){
+	show_bar_project(".projects")
+	show_bar_task(".tasks");
+}
+
 
 var editfunc_project = function(p) {
-$("#"+p).children(".project-title").find(".edit").click(function() {
+$(p).find(".project-title").find(".edit").click(function() {
     $(this).parent().siblings(".title").toggle();
     $(this).parent().parent().find("span.input-append").find(".edit-form").toggle();
   });
 };
 
 var editfunc_task = function(t) {
-$("#"+t).find(".edit").click(function() {
+$(t).find(".edit").click(function() {
     $(this).parent().parent().parent().children(".maincol").find(".content").toggle();
     $(this).parent().parent().parent().children(".maincol").find(".edit-form").toggle();
   });
 };
 
+var editfunc = function() {
+	editfunc_project(".projects");
+    editfunc_task(".tasks");
+};
+
+var taskdone = function() {
+	$(".task-done").bind('change', function(){
+	    $.ajax({
+	      url: '/tasks/'+this.value+'/done',
+	      type: 'POST',
+	      data: {"done": this.checked}
+	    });
+	})
+};
 
 $(show_bar);
 $(editfunc);
+$(taskdone);

@@ -3,9 +3,10 @@ Rails.application.routes.draw do
   resources :users, only: [:new, :create, :destroy, :update]
   resources :sessions, only: [:new, :create, :destroy]
   resources :projects, only: [:create, :update, :destroy]
-  resources :tasks, only: [:create, :update, :destroy, :up, :down] do
+  resources :tasks, only: [:create, :update, :destroy, :up, :down, :done] do
     get 'up', via: 'patch'
     get 'down', via: 'patch'
+    post 'done', via: 'patch'
   end
 
   # The priority is based upon order of creation: first created -> highest priority.

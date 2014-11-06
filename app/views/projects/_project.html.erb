@@ -3,10 +3,10 @@
     <%= fa_icon "calendar-o" %>
     <span class="title"><%=project.title%></span>
     <span class="input-append">
-    <div class="edit-form" <%= 'hidden' if (project.title!="" && project.title) %> >
+    <div class="edit-form" <%= 'hidden' if !Rails.env.test? && (project.title!="" && project.title) %> >
     <%= form_for(project, remote: true) do |f| %>
-      <%= f.text_field :title, maxlength: 70 %>
-      <%= button_tag(type: "submit", class: "btn btn-primary" ) do%>
+      <%= f.text_field :title, maxlength: 70, id: "input_title_#{project.id}" %>
+      <%= button_tag(type: "submit", class: "btn btn-primary", id: "submit_edit_project_#{project.id}"  ) do%>
         <i class="icon-ok-circle"></i>
       <% end %>
     <% end %>

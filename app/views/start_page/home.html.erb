@@ -2,17 +2,16 @@
 <div class ="row">
   <div class="span12">
     <section>
-    <%= link_to "Sign out", signout_path, method: "delete" %>
+    <div class="signout_link">
+    <%= link_to "Sign out", signout_path, method: "delete"%>
+    </div>
       <h1 class="center">
         Hello, <%= @user.name %>
       </h1>
     </section>
-    <% if @user.projects.any? %>
-      <h3>Projects (<%= @user.projects.count %>)</h3>
       <ul class="projects">
-        <%= render @projects %>
+        <%= render @projects if @user.projects.any? %>
       </ul>
-    <% end %>
       <div class="center projectform">
       <%= render 'projects/project_form' %>
       </div>

@@ -1,15 +1,15 @@
 <tbody  id="task_<%=task.id%>">
 <tr class="task">
-  <%= form_for(task, remote: true) do |f| %>
     <td class="donecol">
-      <%= f.check_box :done %>
+      <%= check_box_tag "done", task.id, task.done, :class => "task-done", id: "done_#{task.id}"  %>
     </td>
     <td class="maincol">
+      <%= form_for(task, remote: true) do |f| %>
       <div class="content"><%= task.content%></div>
       <div class="edit-form" hidden>
         <div class="input-append">
-          <%= f.text_field :content, maxlength: 85 %>
-          <%= button_tag(type: "submit", class: "btn btn-primary") do%>
+          <%= f.text_field :content, maxlength: 85, id: "input_content_#{task.id}" %>
+          <%= button_tag(type: "submit", class: "btn btn-primary", id: "submit_edit_task_#{task.id}") do%>
             <i class="icon-ok-circle"></i>
           <% end %>
         </div>
@@ -17,8 +17,8 @@
           <%= f.datetime_select :deadline %>
         </div>
       </div>
+      <% end %>
     </td>
-  <% end %>
   <td class="barcol">
   <%= render partial: 'shared/udbar', locals: {target: task} %>
   <div class="pull-right hidebar">

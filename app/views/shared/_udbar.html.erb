@@ -1,9 +1,9 @@
   <div class="pull-right udbar hidebar">
-  <span class="edit">
+  <span class="edit" id="show_edit_<%= target.class.to_s.downcase %>_<%= target.id %>">
       <%= fa_icon "pencil 1x" %>
   </span>
   <span class="destroy">
-  <%=link_to target, method: :delete, data: { confirm: 'Are you sure?' }, remote: true do
+  <%=link_to target, method: :delete, data: { confirm: 'Are you sure?' }, remote: true, id: "delet_#{target.class.to_s.downcase}_#{target.id}" do
       fa_icon "trash 1x"
       end %>
   </span>

@@ -43,9 +43,6 @@ textarea {
 .projects {
   list-style: none;
   padding: 0;
-  .project-title {
-
-  }
   .project {
 	  border-radius: 20px;
 	  background-color: white;
@@ -66,8 +63,12 @@ textarea {
 /* tasks */
 .tasks {
   width: 100%;
+  #task_content{
+    width: 650px;
+  }
   .donecol {
-    width: 30px;
+    width: 25px;
+    padding-left: 15px;
   }
   .barcol {
     width: 90px;
@@ -84,6 +85,9 @@ textarea {
   i{
     color: $grayDark;
   }
+  form{
+    margin: 0;
+  }
 }
 
 .taskform {
@@ -91,13 +95,19 @@ textarea {
   width: 100%;
   background-color: $grayLight;
   i{
+  font-size: 20pt;
+  color: green;
   margin-right: 20px;
+  margin-top: 3px;
   }
   .inputtask {
     width: 80%;
   }
   .btntask {
     width: 10%;
+  }
+  form{
+    margin-bottom: 5px;
   }
 }
 
@@ -120,4 +130,9 @@ textarea {
 
 .hidebar {
   display: none;
+}
+
+.signout_link {
+  text-align: right;
+  width: 100%;
 }

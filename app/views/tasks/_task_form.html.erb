@@ -1,7 +1,6 @@
 <%= form_for(pid.user.tasks.build, remote: true) do |f| %>
-  <%= render 'shared/error_messages', object: f.object %>
   <%= f.hidden_field :project_id, value: pid.id %>
-  <%= fa_icon "angle-up" %>
-  <%= f.text_field :content, maxlength: 85, placeholder: "new task...", class: "inputtask" %>
-  <%= f.submit "Create", class: "btn btn-success btntask" %>
+  <%= fa_icon "plus" %>
+  <%= f.text_field :content, maxlength: 85, placeholder: "new task...", class: "inputtask", id: "input_create_task_project_#{pid.id}" %>
+  <%= f.submit "Create", class: "btn btn-success btntask", id: "create_task_project_#{pid.id}" %>
 <% end %>
