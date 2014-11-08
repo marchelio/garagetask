@@ -56,6 +56,12 @@ textarea {
         font-size: 12pt;
         color: $grayDark;
       }
+      form{
+        margin: 0;
+            input{
+              width: 100%;
+            }
+      }
     }
 	}
 }
@@ -87,6 +93,9 @@ textarea {
   }
   form{
     margin: 0;
+    input{
+      width: 90%;
+    }
   }
 }
 
